@@ -1,0 +1,17 @@
+\section{Critical reflection}
+
+The results of this study have shown that, from a noise filtering perspective, different filters may offer better performance for a set of similar signal types, in other words, we have seen that for some logs, a moving window filter, applied to each channel individually, generated better correlation between both channels.
+
+Visual analytics helped characterise signal and noise and therefore to determine differences. Once additional features had been engineered and visualised, it was implied that linear interpolation might provide good results in eliminating noise, and ultimately increasing the correlation between the two channels.
+
+The approach suggested in this study could be applied to other equipment subject to IEC 61508 approvals, as any analogue to digital conversion process subject to interference would be likely to present the same noise. The distinguishing factor being the peculiarity of the flame detector under test presenting two flame detectors and the approach of bringing both signals in line with each other. Any equipment with redundant sensors could benefit from such approach, probably still within the signal processing domain, as redundancy seems to be a peculiarity on most systems with some degree of realtime computing \cite{Kane:1992}.
+
+The antiphase function would have benefited from a window approach, whereby a sequence is taken instead of an observation index in relation to the preceding index. The antiphase plots, although illustrative were somewhat counterintuitive, as areas that were visualise showing channels 1 and two travelling in opposite direction where not showing antiphase polygon highlights. This may be explained in part because the plots are very dense, many data points having to be represented as a single pixel, so perhaps if this is a shortcoming of the method, the display or both could be a subject for future studies.
+
+The distance function visually worked quite well once it was highlighted though the actual linear interpolation algorithm should take both distance and antiphase into account though in this study, in the end, only distance was used while antiphase was not used to determine which areas should be smoothed by linear interpolation. In future an more robust algorithm should account for both.
+
+The Savistsky-Golay filter provided improved correlation coefficients between channels, once the signals had been filtered via this method. Ideally the window length and polynomial order should be optimised on a per section basis, with a look ahead scheme with a buffered output, where a decision could be made about what the optimal parameters would be.
+
+The same applies to Linear Interpolation, where a buffer scheme could provide a delay in which to decide which should be used, filtering or interpolation as, we have noticed, both have optimal performing instances, though this study could not conclude what those aspects could be.
+
+On the whole, this study achieved its goal in quantifying signal processing strategy performance in attenuating noise and in establishing what metrics can be used. It did so by the use of computational and visual techniques, to process data and generate plots, to the inform decisions\cite{Sikar:INM433} . In was not able to determine at this stage the suitability of one strategy over another at this stage.

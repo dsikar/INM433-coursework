@@ -1,0 +1,61 @@
+\section{Findings}
+
+We found metrics to characterise as well as distinguish signal from noise and provide attenuation boundaries for the linear interpolation scheme.
+
+We applied two signal processing strategies to attenuate noise, and found that both SG (Savitzky-Golay) and LI (Linear Interpolation) increased correlation coefficients in most cases, though in some cases such as Test52.log SG decreased the correlation coefficient while in cases such as Test46.log, LI decresed the correlation, coefficient. On the whole SG performed better than LI.
+
+We found that signal had low distance functions, while noise had high distance functions in the presence of antiphase, as both signals are travelling in opposite directions.
+
+Distance turned out to be a good proxy for noise, with the higher values being directly proportional to higher noise, i.e. channels 1 and 2 far from each other, while lower values mean lower noise and consequently, higher signal.
+
+Antiphase was also an interesting marker as it seems to occur frequently though was not see in the presence of signal.
+
+A key finding was that both SG and LI actually improved correlation coefficients for our reference signal file Test45.log
+
+Table \ref{table:kysymys} on page \pageref{table:kysymys} refers to the correlation coefficients, where CC is the original, SGCC is the filtered and ICC is the interpolated data correlation coefficient between channels a and b. Asterisks denote highest correlation coefficient in row.
+
+We established that a large proportion of the variation can be explained by interference, when signals go into antiphase, increasing the distance between values.
+
+We found that applying the Savistzky-Golay filter decreased the distance, in turn decreasing noise. Contrary to expectation, we found that no single scheme worked best as shown in Table 1, where some correlation coefficients are improved by filtering while others are improved by linear interpolation.
+
+One research question that could not be answered was how metrics obtained (as described in 2.1) could be used to determine the suitability of one strategy over another. As seen in Table 1. SG and LI perform different and it would have been good to determine the reasons for this difference, predicting ahead of time, when to best use one or the other. We expand more on this topic in the next section.
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{4}{|l|}{Original, filtered and interpolated data} \\ \hline
+Log file  &  CC & SGCC & ICC \\ \hline
+Test45.log & 0.9956 & 0.9979 * & 0.9961 \\ \hline
+Test46.log & 0.6518 & 0.7940 * & 0.4763 \\ \hline
+Test47.log & 0.8840 & 0.9254 * & 0.5557 \\ \hline
+Test48.log & 0.6908 & 0.6951 & 0.9439 * \\ \hline
+Test49.log & 0.1931 & 0.2154 & 0.2427 * \\ \hline
+Test50.log & 0.7170 & 0.7751 * & 0.6453 \\ \hline
+Test51.log & 0.8739 & 0.8827 & 0.9927 * \\ \hline
+Test52.log & 0.3417 & 0.3394 & 0.9083 * \\ \hline
+Test53.log & 0.9146 & 0.9220 & 0.9914 * \\ \hline
+Test54.log & 0.9172 & 0.9275 & 0.9771 * \\ \hline
+Test55.log & 0.8123 & 0.8739 * & 0.5765 \\ \hline
+Test56.log & 0.8891 & 0.9020 * & 0.8978 \\ \hline
+Test57.log & 0.3361 & 0.3370 & 0.7804 * \\ \hline
+Test58.log & 0.2004 & 0.2245 & 0.2729 * \\ \hline
+Test59.log & 0.3922 & 0.5423 * & 0.3553 \\ \hline
+Test60.log & 0.4395 & 0.5177 * & 0.4593 \\ \hline
+Test61.log & 0.1974 & 0.1916 & 0.2653 * \\ \hline
+Test62.log & 0.4155 & 0.5919 * & 0.4111 \\ \hline
+Test63.log & 0.5986 & 0.7438 * & 0.4770 \\ \hline
+Test64.log & 0.5219 & 0.7022 * & 0.3897 \\ \hline
+Test65.log & 0.2200 & 0.2588 & 0.2898 * \\ \hline
+Test66.log & 0.3489 & 0.4134 * & 0.3954 \\ \hline
+Test67.log & 0.8746 & 0.8895 * & 0.7683 \\ \hline
+Test68.log & 0.7765 & 0.7922 * & 0.7790 \\ \hline
+Test69.log & 0.2566 & 0.2577 & 0.9030 * \\ \hline
+Test70.log & 0.4387 & 0.6178 * & 0.4610 \\ \hline
+Test71.log & 0.6141 & 0.7820 * & 0.4476 \\ \hline
+Test72.log & 0.7652 & 0.7695 & 0.9456 * \\ \hline
+
+\end{tabular}
+\caption{Correlation coefficients}
+\label{table:kysymys}
+\end{table}
